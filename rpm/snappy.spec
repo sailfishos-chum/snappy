@@ -1,12 +1,12 @@
 Summary: A fast compressor/decompressor
 Name: snappy
-Version: 1.1.3
+Version: 1.1.6
 Release: 1%{?dist}
 License: BSD-type license
 Group: Libraries/Databases
 URL: https://github.com/google/snappy
 
-Source: snappy-1.1.3.tar.gz
+Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc-c++
@@ -25,10 +25,12 @@ Snappy, a fast compressor/decompressor. This
 package provides libraries and headers for development
 
 %prep
-%setup
+%setup -q -n %{name}-%{version}/snappy
 
 %build
 %{__make} clean || true
+
+./autogen.sh
 
 CFLAGS="$CFLAGS -fPIC"
 CXXFLAGS="$CXXFLAGS -fPIC"
@@ -45,7 +47,9 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 
 %pre
 
-%post
+%post -n snappy -p /sbin/ldconfig
+
+%postun -n snappy -p /sbin/ldconfig
 
 %files
 %defattr(-, root, root, 0755)
