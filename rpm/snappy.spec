@@ -61,6 +61,7 @@ CXXFLAGS="$CXXFLAGS -fPIC"
 %defattr(-, root, root, 0755)
 %{_includedir}/snappy*.h
 %{_libdir}/libsnappy.a
+%{_libdir}/pkgconfig/snappy.pc
 %exclude %{_libdir}/libsnappy.la
 
 %changelog
