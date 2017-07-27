@@ -26,6 +26,7 @@ package provides libraries and headers for development
 
 %prep
 %setup -q -n %{name}-%{version}/snappy
+patch -p0 < ../readme.patch
 
 %build
 %{__make} clean || true

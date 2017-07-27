@@ -1,0 +1,10 @@
+diff --git Makefile.am Makefile.am
+index 0746a16..c8475f9 100644
+--- Makefile.am
++++ Makefile.am
+@@ -28,4 +28,4 @@ libtool: $(LIBTOOL_DEPS)
+ # Needed by autoconf because we use README.md instead of README.
+ # See http://stackoverflow.com/q/15013672/
+ README: README.md
+-	cat $< > $@.tmp
++	cat $< > $@
