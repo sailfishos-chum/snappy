@@ -15,6 +15,9 @@ BuildRequires: gcc-c++
 %description
 Snappy, a fast compressor/decompressor.
 
+Categories:
+  - Library
+
 %package devel
 Summary: snappy development headers and static library
 Group: Development/Libraries
